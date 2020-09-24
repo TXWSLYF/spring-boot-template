@@ -1,8 +1,20 @@
 # spring-boot-template
-spring-boot 模板
 
+## Introduction
+spring-boot 模板，通用代码封装。
 
-## 参考链接
+## Features
+1. 全局异常处理
+2. 统一返回数据格式
+
+## Todos
+- [x] 全局异常处理
+- [x] 统一返回数据格式
+- [ ] 登录验证
+- [ ] 文件上传
+- [ ] mysql curd 示例
+
+## References
 1. [spring-boot 最佳实践](https://medium.com/the-resonant-web/spring-boot-2-0-project-structure-and-best-practices-part-2-7137bdcba7d3)
 2. [idea springBoot 配置 devtools 实现开发自动重启](https://www.cnblogs.com/kingsonfu/p/10388391.html)
 3. [springboot的接口返回值统一标准格式](https://blog.csdn.net/shenhuxi10000/article/details/104622770)

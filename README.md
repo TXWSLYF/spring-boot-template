@@ -23,3 +23,4 @@ spring-boot 模板，通用代码封装。
 6. [springboot2.x处理404、500等异常](https://blog.csdn.net/weixin_42034623/article/details/90293402)
 7. [SpringBoot 之全局异常处理==>附捕获404异常](https://blog.csdn.net/yali_aini/article/details/84638747)
 8. [likaladi-seckill-new](https://github.com/likaladi/likaladi-seckill-new/blob/021015bfdea8dc2270a60586b2c509148be3b523/likaladi-base/src/main/java/com/likaladi/response/RestResultWrapper.java)
+9. [springboot+jwt实现token登陆权限认证](https://zhuanlan.zhihu.com/p/109833584)

@@ -1,45 +1,52 @@
 package com.example.springboottemplate.users.v1;
 
-import com.example.springboottemplate.common.utils.JwtUtil;
-import com.example.springboottemplate.users.v1.dto.CreateUserDto;
-import org.springframework.beans.factory.annotation.Value;
+import com.example.springboottemplate.users.v1.model.User;
+import com.example.springboottemplate.users.v1.repository.UserRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
+import java.util.Optional;
 
 @Component
 @RestController
 @RequestMapping("/v1/user")
 public class UserController {
+    private UserRepository userRepository;
 
-    @Value("${testname}")
-    private String dataSource;
-
-    @GetMapping("/alex")
-    public CreateUserDto alex() throws Exception {
-        CreateUserDto createUserDto = new CreateUserDto("alex", 25);
-
-        return createUserDto;
+    UserController(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
-    @GetMapping("/500")
-    public String error500() {
-        int a = 5 / 0;
-
-        return "1";
+    @GetMapping
+    List<User> all() {
+        return userRepository.findAll();
     }
 
-    @GetMapping("/config")
-    public String config() {
-        return this.dataSource;
+    @GetMapping("/{id}")
+    Optional<User> get(@PathVariable Long id) {
+        return userRepository.findById(id);
     }
 
-    @GetMapping("/create")
-    public String create() {
-        return "create";
+    @PostMapping
+    User create(@RequestBody User user) {
+        return userRepository.save(user);
     }
 
-    @GetMapping("parseToken")
-    public Object parseToken(@RequestParam("token") String token) {
-        return JwtUtil.parse(token);
+    @PutMapping("/{id}")
+    User edit(@PathVariable Long id, @RequestBody User newUser) {
+        return userRepository.findById(id).map(user -> {
+            user.setUsername(newUser.getUsername());
+            user.setPassword(newUser.getPassword());
+
+            return userRepository.save(user);
+        }).orElseGet(() -> {
+            newUser.setId(id);
+            return userRepository.save(newUser);
+        });
+    }
+
+    @DeleteMapping("/{id}")
+    void delete(@PathVariable Long id) {
+        userRepository.deleteById(id);
     }
 }

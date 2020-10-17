@@ -26,3 +26,5 @@ spring-boot 模板，通用代码封装。
 9. [springboot+jwt实现token登陆权限认证](https://zhuanlan.zhihu.com/p/109833584)
 10. [全局异常处理及自定义异常：ErrorController与@ControllerAdvice区别和用法](https://blog.csdn.net/jwf111/article/details/88571067)
 11. [spring-boot restful api](https://spring.io/guides/tutorials/rest/)
+12. [jpa 分页条件查询](https://www.cnblogs.com/wuxun1997/p/10903649.html)
+13. [Advanced Spring Data JPA - Specifications and Querydsl](https://spring.io/blog/2011/04/26/advanced-spring-data-jpa-specifications-and-querydsl/)
